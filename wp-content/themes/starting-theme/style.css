@@ -731,8 +731,12 @@ header {
   /* line 35, sass/pages/_header.scss */
   header .social {
     margin-top: 40px;
-    text-align: right; }
-  /* line 39, sass/pages/_header.scss */
+    text-align: center; }
+    @media screen and (min-width: 992px) {
+      /* line 35, sass/pages/_header.scss */
+      header .social {
+        text-align: right; } }
+  /* line 42, sass/pages/_header.scss */
   header .overlay {
     height: 0%;
     width: 100%;
@@ -744,7 +748,7 @@ header {
     background-color: rgba(0, 0, 0, 0.75);
     overflow-y: hidden;
     transition: 0.5s; }
-    /* line 51, sass/pages/_header.scss */
+    /* line 54, sass/pages/_header.scss */
     header .overlay input[type=text] {
       padding: 15px;
       font-size: 17px;
@@ -753,7 +757,7 @@ header {
       width: 80%;
       background: white;
       border-radius: 0; }
-    /* line 60, sass/pages/_header.scss */
+    /* line 63, sass/pages/_header.scss */
     header .overlay button {
       float: left;
       width: 20%;
@@ -762,24 +766,24 @@ header {
       border: none;
       cursor: pointer;
       border-radius: 0; }
-  /* line 71, sass/pages/_header.scss */
+  /* line 74, sass/pages/_header.scss */
   header .overlay-content {
     position: relative;
     top: 25%;
     width: 100%;
     text-align: center;
     margin-top: 30px; }
-    /* line 77, sass/pages/_header.scss */
+    /* line 80, sass/pages/_header.scss */
     header .overlay-content ul {
       text-align: left;
       list-style: none;
       margin: 0;
       padding: 0; }
-      /* line 82, sass/pages/_header.scss */
+      /* line 85, sass/pages/_header.scss */
       header .overlay-content ul a:hover {
         border-left: 15px solid #0182C8; }
     @media screen and (min-width: 992px) {
-      /* line 86, sass/pages/_header.scss */
+      /* line 89, sass/pages/_header.scss */
       header .overlay-content ul ul {
         position: absolute;
         top: 0;
@@ -787,20 +791,20 @@ header {
         display: none;
         transition: 0.5s; } }
     @media screen and (min-width: 480px) {
-      /* line 94, sass/pages/_header.scss */
+      /* line 97, sass/pages/_header.scss */
       header .overlay-content ul ul a {
         font-size: 20px; } }
     @media screen and (min-width: 992px) {
-      /* line 94, sass/pages/_header.scss */
+      /* line 97, sass/pages/_header.scss */
       header .overlay-content ul ul a {
         font-size: 40px; } }
-    /* line 103, sass/pages/_header.scss */
+    /* line 106, sass/pages/_header.scss */
     header .overlay-content ul li ul {
       transition: 0.5s; }
-    /* line 106, sass/pages/_header.scss */
+    /* line 109, sass/pages/_header.scss */
     header .overlay-content ul li:hover ul {
       display: block; }
-  /* line 111, sass/pages/_header.scss */
+  /* line 114, sass/pages/_header.scss */
   header .overlay a {
     padding: 8px;
     text-decoration: none;
@@ -812,14 +816,14 @@ header {
     padding-top: 0;
     padding-bottom: 0; }
     @media screen and (min-width: 992px) {
-      /* line 111, sass/pages/_header.scss */
+      /* line 114, sass/pages/_header.scss */
       header .overlay a {
         font-size: 60px; } }
-  /* line 126, sass/pages/_header.scss */
+  /* line 129, sass/pages/_header.scss */
   header .overlay a:hover, header .overlay a:focus {
     color: #abbe0e;
     text-decoration: none; }
-  /* line 131, sass/pages/_header.scss */
+  /* line 134, sass/pages/_header.scss */
   header .overlay .closebtn {
     position: absolute;
     top: 25px;
@@ -827,23 +831,23 @@ header {
     font-size: 100px;
     line-height: 40px;
     z-index: 99999; }
-  /* line 140, sass/pages/_header.scss */
+  /* line 143, sass/pages/_header.scss */
   header .overlay .closebtn:hover {
     transform: rotate(90deg); }
   @media screen and (max-height: 450px) {
-    /* line 146, sass/pages/_header.scss */
+    /* line 149, sass/pages/_header.scss */
     header .overlay {
       overflow-y: auto; }
-    /* line 147, sass/pages/_header.scss */
+    /* line 150, sass/pages/_header.scss */
     header .overlay a {
       font-size: 20px; }
-    /* line 148, sass/pages/_header.scss */
+    /* line 151, sass/pages/_header.scss */
     header .overlay .closebtn {
       font-size: 40px;
       top: 15px;
       right: 35px; } }
 
-/* line 156, sass/pages/_header.scss */
+/* line 159, sass/pages/_header.scss */
 .site-branding {
   position: absolute;
   top: 15px;
@@ -860,157 +864,170 @@ footer {
   /* line 5, sass/pages/_footer.scss */
   footer .footer__right {
     font-size: 12px;
-    text-align: center;
-    border-left: 3px solid #fff; }
-    /* line 9, sass/pages/_footer.scss */
+    text-align: center; }
+    @media screen and (min-width: 992px) {
+      /* line 5, sass/pages/_footer.scss */
+      footer .footer__right {
+        border-left: 3px solid #fff; } }
+    /* line 11, sass/pages/_footer.scss */
     footer .footer__right .col-md-4:first-of-type {
       background-color: #969393; }
-    /* line 12, sass/pages/_footer.scss */
+    /* line 14, sass/pages/_footer.scss */
     footer .footer__right .col-md-4:last-of-type {
       background-color: #595656; }
-    /* line 15, sass/pages/_footer.scss */
+    /* line 17, sass/pages/_footer.scss */
     footer .footer__right .col-md-4 {
       background-color: #6c6969;
       padding-top: 15px;
-      height: 50px; }
-    /* line 21, sass/pages/_footer.scss */
+      min-height: 50px; }
+    /* line 23, sass/pages/_footer.scss */
     footer .footer__right .byline a {
       color: #fff; }
-    /* line 24, sass/pages/_footer.scss */
+    /* line 26, sass/pages/_footer.scss */
     footer .footer__right .byline a:hover {
       color: #abbe0e; }
-    /* line 29, sass/pages/_footer.scss */
+    /* line 31, sass/pages/_footer.scss */
     footer .footer__right .tel a {
       font-size: 16px;
-      font-weight: 700; }
-    /* line 33, sass/pages/_footer.scss */
+      font-weight: 700;
+      display: inline-block; }
+    /* line 36, sass/pages/_footer.scss */
     footer .footer__right .tel a:hover {
       color: #abbe0e; }
-  /* line 39, sass/pages/_footer.scss */
+  /* line 42, sass/pages/_footer.scss */
   footer .footer__left {
     font-size: 22px;
-    height: 50px; }
-    /* line 42, sass/pages/_footer.scss */
+    min-height: 50px; }
+    @media screen and (min-width: 768px) {
+      /* line 42, sass/pages/_footer.scss */
+      footer .footer__left {
+        padding: 20px 0 !important; } }
+    /* line 48, sass/pages/_footer.scss */
     footer .footer__left a {
       color: #fff;
-      display: block; }
-    /* line 47, sass/pages/_footer.scss */
+      display: block;
+      text-align: center; }
+    /* line 53, sass/pages/_footer.scss */
     footer .footer__left a:hover {
       color: #abbe0e; }
-  /* line 54, sass/pages/_footer.scss */
-  footer .menu ul {
+  /* line 60, sass/pages/_footer.scss */
+  footer .menu ul#menu-products {
     padding: 0;
-    margin: 0; }
-  /* line 59, sass/pages/_footer.scss */
-  footer .menu li {
-    float: left;
-    display: inline-block;
-    font-weight: 600;
-    text-align: center; }
-    @media screen and (min-width: 480px) {
-      /* line 59, sass/pages/_footer.scss */
-      footer .menu li {
-        width: 100%; } }
-    @media screen and (min-width: 992px) {
-      /* line 59, sass/pages/_footer.scss */
-      footer .menu li {
-        width: 16.666%; } }
-  /* line 73, sass/pages/_footer.scss */
+    margin: 0;
+    list-style: none; }
+    /* line 64, sass/pages/_footer.scss */
+    footer .menu ul#menu-products li {
+      font-weight: 600;
+      text-align: center; }
+      @media screen and (min-width: 768px) {
+        /* line 64, sass/pages/_footer.scss */
+        footer .menu ul#menu-products li {
+          font-weight: 600;
+          text-align: center;
+          width: 33%;
+          float: left; } }
+      @media screen and (min-width: 992px) {
+        /* line 64, sass/pages/_footer.scss */
+        footer .menu ul#menu-products li {
+          width: 16.666%;
+          display: inline-block; } }
+  /* line 81, sass/pages/_footer.scss */
   footer .menu li:nth-child(1) a {
     color: #39b0e5; }
-  /* line 78, sass/pages/_footer.scss */
+  /* line 86, sass/pages/_footer.scss */
   footer .menu li:nth-child(2) a {
     color: #f8d716; }
-  /* line 83, sass/pages/_footer.scss */
+  /* line 91, sass/pages/_footer.scss */
   footer .menu li:nth-child(3) a {
     color: #c085b9; }
-  /* line 88, sass/pages/_footer.scss */
+  /* line 96, sass/pages/_footer.scss */
   footer .menu li:nth-child(4) a {
     color: #5fb878; }
-  /* line 93, sass/pages/_footer.scss */
+  /* line 101, sass/pages/_footer.scss */
   footer .menu li:nth-child(5) a {
     color: #ed6a4d; }
-  /* line 98, sass/pages/_footer.scss */
+  /* line 106, sass/pages/_footer.scss */
   footer .menu li:nth-child(6) a {
     color: #f46aa8; }
-  /* line 102, sass/pages/_footer.scss */
+  /* line 110, sass/pages/_footer.scss */
   footer .menu li a:hover {
     color: #fff; }
-  /* line 107, sass/pages/_footer.scss */
+  /* line 115, sass/pages/_footer.scss */
   footer a {
-    margin-top: 8px;
     color: #fff; }
 
 /*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
-/* line 2, sass/pages/_home.scss */
-.site-content {
-  margin-top: -40px; }
+@media screen and (min-width: 992px) {
+  /* line 1, sass/pages/_home.scss */
+  .site-content {
+    margin-top: -40px; } }
 
-/* line 6, sass/pages/_home.scss */
+/* line 7, sass/pages/_home.scss */
 .hero {
   padding-top: 280px;
   text-align: center;
-  color: #fff; }
+  color: #fff;
+  padding-bottom: 50px; }
   @media screen and (min-width: 992px) {
-    /* line 6, sass/pages/_home.scss */
+    /* line 7, sass/pages/_home.scss */
     .hero {
       height: calc(100vh - 143px); } }
-  /* line 13, sass/pages/_home.scss */
+  /* line 15, sass/pages/_home.scss */
   .hero h1 {
     font-weight: 700; }
     @media screen and (min-width: 480px) {
-      /* line 13, sass/pages/_home.scss */
+      /* line 15, sass/pages/_home.scss */
       .hero h1 {
         font-size: 50px;
         line-height: 50px; } }
     @media screen and (min-width: 992px) {
-      /* line 13, sass/pages/_home.scss */
+      /* line 15, sass/pages/_home.scss */
       .hero h1 {
         font-size: 100px;
         line-height: 100px; } }
-  /* line 24, sass/pages/_home.scss */
+  /* line 26, sass/pages/_home.scss */
   .hero p {
     font-size: 14px;
     text-transform: uppercase; }
-  /* line 28, sass/pages/_home.scss */
+  /* line 30, sass/pages/_home.scss */
   .hero a {
     color: #fff;
     display: block; }
-  /* line 32, sass/pages/_home.scss */
+  /* line 34, sass/pages/_home.scss */
   .hero a:hover {
     color: #abbe0e; }
-  /* line 36, sass/pages/_home.scss */
+  /* line 38, sass/pages/_home.scss */
   .hero .products h2 {
     font-size: 22px; }
-  /* line 39, sass/pages/_home.scss */
+  /* line 41, sass/pages/_home.scss */
   .hero .products .Office h2 {
     color: #39b0e5; }
-  /* line 42, sass/pages/_home.scss */
+  /* line 44, sass/pages/_home.scss */
   .hero .products .Factory h2 {
     color: #f8d716; }
-  /* line 45, sass/pages/_home.scss */
+  /* line 47, sass/pages/_home.scss */
   .hero .products .Online h2 {
     color: #c085b9; }
-  /* line 48, sass/pages/_home.scss */
+  /* line 50, sass/pages/_home.scss */
   .hero .products .Road h2 {
     color: #5fb878; }
-  /* line 51, sass/pages/_home.scss */
+  /* line 53, sass/pages/_home.scss */
   .hero .products .POS h2 {
     color: #ed6a4d; }
-  /* line 54, sass/pages/_home.scss */
+  /* line 56, sass/pages/_home.scss */
   .hero .products .CRM h2 {
     color: #f46aa8; }
-  /* line 57, sass/pages/_home.scss */
+  /* line 59, sass/pages/_home.scss */
   .hero .products img {
     margin: 15px 0 10px 0; }
 
-/* line 63, sass/pages/_home.scss */
+/* line 65, sass/pages/_home.scss */
 .help {
   padding-top: 80px;
   padding-bottom: 80px; }
-  /* line 66, sass/pages/_home.scss */
+  /* line 68, sass/pages/_home.scss */
   .help h3 {
     color: #000;
     font-size: 50px;
@@ -1019,25 +1036,25 @@ footer {
     padding: 0;
     font-weight: 700;
     text-align: center; }
-  /* line 75, sass/pages/_home.scss */
+  /* line 77, sass/pages/_home.scss */
   .help p {
     color: #a7a8a1; }
-  /* line 78, sass/pages/_home.scss */
+  /* line 80, sass/pages/_home.scss */
   .help button {
     background: #abbe0e;
     color: #fff;
     text-transform: uppercase;
     font-weight: 500; }
 
-/* line 86, sass/pages/_home.scss */
+/* line 88, sass/pages/_home.scss */
 .industries {
   background: #d7d5cd;
   color: #fff;
   padding: 30px 0 50px 0; }
-  /* line 90, sass/pages/_home.scss */
+  /* line 92, sass/pages/_home.scss */
   .industries .industry {
     margin-bottom: 30px; }
-  /* line 93, sass/pages/_home.scss */
+  /* line 95, sass/pages/_home.scss */
   .industries h3 {
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
@@ -1047,35 +1064,35 @@ footer {
     font-weight: 700;
     margin-bottom: 40px; }
     @media screen and (min-width: 480px) {
-      /* line 93, sass/pages/_home.scss */
+      /* line 95, sass/pages/_home.scss */
       .industries h3 {
         font-size: 25px; } }
     @media screen and (min-width: 992px) {
-      /* line 93, sass/pages/_home.scss */
+      /* line 95, sass/pages/_home.scss */
       .industries h3 {
         font-size: 50px; } }
-  /* line 108, sass/pages/_home.scss */
+  /* line 110, sass/pages/_home.scss */
   .industries .wrapper {
     padding: 250px 20px 20px 20px;
     position: relative;
     transition: .5s; }
-    /* line 112, sass/pages/_home.scss */
+    /* line 114, sass/pages/_home.scss */
     .industries .wrapper .inner {
       position: absolute;
       bottom: 20px;
       left: 20px; }
-    /* line 117, sass/pages/_home.scss */
+    /* line 119, sass/pages/_home.scss */
     .industries .wrapper h4 {
       font-size: 25px;
       text-transform: uppercase;
       font-weight: 700; }
-    /* line 122, sass/pages/_home.scss */
+    /* line 124, sass/pages/_home.scss */
     .industries .wrapper a {
       color: #fff; }
-  /* line 126, sass/pages/_home.scss */
+  /* line 128, sass/pages/_home.scss */
   .industries .wrapper:hover {
     transform: scale(1.05); }
-  /* line 129, sass/pages/_home.scss */
+  /* line 131, sass/pages/_home.scss */
   .industries .wrapper::before {
     content: url("images/food-industries_before.png");
     width: 39px;
@@ -1084,15 +1101,16 @@ footer {
     top: 0;
     left: 20px; }
 
-/* line 139, sass/pages/_home.scss */
+/* line 141, sass/pages/_home.scss */
 .testimonial {
   background: url(images/testimonials_bg.jpg) bottom center;
   background-size: cover;
   height: 800px;
   position: relative;
   text-align: center; }
-  /* line 145, sass/pages/_home.scss */
+  /* line 147, sass/pages/_home.scss */
   .testimonial h5 {
+    font-size: 30px;
     color: #4b4444;
     border-top: 1px solid #4b4444;
     border-bottom: 1px solid #4b4444;
@@ -1101,12 +1119,8 @@ footer {
     font-weight: 700;
     width: 80%;
     margin: 0 auto; }
-    @media screen and (min-width: 480px) {
-      /* line 145, sass/pages/_home.scss */
-      .testimonial h5 {
-        font-size: 30px; } }
     @media screen and (min-width: 992px) {
-      /* line 145, sass/pages/_home.scss */
+      /* line 147, sass/pages/_home.scss */
       .testimonial h5 {
         font-size: 50px; } }
   /* line 161, sass/pages/_home.scss */

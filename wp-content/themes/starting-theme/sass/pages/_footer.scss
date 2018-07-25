@@ -5,7 +5,9 @@ footer {
   .footer__right {
     font-size: 12px;
     text-align: center;
-    border-left: 3px solid #fff;
+    @include md {
+      border-left: 3px solid #fff;
+    }
     .col-md-4:first-of-type {
       background-color: #969393;
     }
@@ -15,7 +17,7 @@ footer {
     .col-md-4 {
       background-color: #6c6969;
       padding-top: 15px;
-      height: 50px;
+      min-height: 50px;
     }
     .byline {
       a {
@@ -29,6 +31,7 @@ footer {
       a {
         font-size: 16px;
         font-weight: 700;
+        display: inline-block;
       }
       a:hover {
         color: #abbe0e;
@@ -38,12 +41,15 @@ footer {
 
   .footer__left {
     font-size: 22px;
-    height: 50px;
+    min-height: 50px;
+    @include sm {
+      padding: 20px 0 !important;
+    }
     a {
       color: #fff;
       display: block;
+      text-align: center;
     }
-
     a:hover {
       color: #abbe0e;
     }
@@ -51,21 +57,23 @@ footer {
 
   .menu {
 
-    ul {
+    ul#menu-products {
       padding: 0;
       margin: 0;
-    }
-
-    li {
-      float: left;
-      display: inline-block;
-      font-weight: 600;
-      text-align: center;
-      @include xs {
-        width: 100%;
-      }
-      @include md {
-        width: 16.666%;
+      list-style: none;
+      li {
+        font-weight: 600;
+        text-align: center;
+        @include sm {
+          font-weight: 600;
+          text-align: center;
+          width: 33%;
+          float: left;
+        }
+        @include md {
+          width: 16.666%;
+          display: inline-block;
+        }
       }
     }
 
@@ -105,7 +113,7 @@ footer {
   }
 
   a {
-    margin-top: 8px;
+    // margin-top: 8px;
     color: #fff;
   }
 }

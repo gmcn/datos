@@ -30,14 +30,14 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6 site-branding">
+				<div class="col-xs-3 site-branding">
 
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<img width="100px" src="<?php echo get_template_directory_uri(); ?>/images/datos-logo.svg" alt="<?php echo $description ?>" />
 					</a>
 
 				</div><!-- /.row .site-branding -->
-				<div class="col-md-4">
+				<div class="col-xs-9 col-md-7">
 					<!-- Static navbar -->
 							<nav class="navbar navbar-default">
 								<div class="container-fluid">
@@ -95,9 +95,9 @@
 								</div><!--/.container-fluid -->
 							</nav><!-- #site-navigation -->
 				</div><!-- /.col-md-4-->
-				<div class="col-md-2 social">
+				<div class="col-md-2 social hidden-xs hidden-sm">
 					<a href="https://www.facebook.com/DatosSolutions/" target="_blank">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/Facebook-icon.jpg" alt="follow us on Facebook"  />
+						<img src="<?php echo get_template_directory_uri(); ?>/images/facebook-icon.jpg" alt="follow us on Facebook"  />
 					</a>
 					<a href="https://twitter.com/datos_solutions" target="_blank">
 						<img src="<?php echo get_template_directory_uri(); ?>/images/twitter-icon.jpg" alt="follow us on Twitter"  />
