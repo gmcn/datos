@@ -109,11 +109,6 @@
   > .navbar-collapse {
     margin-right: -$navbar-padding-horizontal;
     margin-left:  -$navbar-padding-horizontal;
-
-    @media (min-width: $grid-float-breakpoint) {
-      margin-right: 0;
-      margin-left:  0;
-    }
   }
 }
 
@@ -380,7 +375,7 @@
     float: left !important;
   }
   .navbar-right {
-    float: right !important;
+    float: left !important;
   margin-right: -$navbar-padding-horizontal;
 
     ~ .navbar-right {
@@ -395,8 +390,6 @@
 
 // Default navbar
 .navbar-default {
-  background-color: $navbar-default-bg;
-  border-color: $navbar-default-border;
 
   .navbar-brand {
     color: $navbar-default-brand-color;

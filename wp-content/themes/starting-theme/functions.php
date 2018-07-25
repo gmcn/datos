@@ -45,6 +45,7 @@ function starting_theme_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'starting-theme' ),
+		'footer-products' => esc_html__( 'Products (Footer)', 'starting-theme' ),
 	) );
 
 	/*
@@ -163,6 +164,38 @@ function new_submenu_class($menu) {
 
 add_filter('wp_nav_menu','new_submenu_class');
 
+// Make the search to index custom
+/**
+ * Extend WordPress search to include custom fields
+ * http://adambalee.com
+ *
+ * Join posts and postmeta tables
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_join
+ */
+function cf_search_join( $join ) {
+    global $wpdb;
+    if ( is_search() ) {
+        $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+    }
+    return $join;
+}
+add_filter('posts_join', 'cf_search_join' );
+
+/**
+ * Modify the search query with posts_where
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
+ */
+function cf_search_where( $where ) {
+    global $pagenow, $wpdb;
+    if ( is_search() ) {
+        $where = preg_replace(
+            "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+            "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
+    }
+    return $where;
+}
+add_filter( 'posts_where', 'cf_search_where' );
+
 /**
  * Code to add the custom login css file to the theme
  * - file is "/login/custom-login-styles.css"
@@ -171,6 +204,94 @@ function my_custom_login() {
 echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/custom-login-styles.css" />';
 }
 add_action('login_head', 'my_custom_login');
+
+// Register Custom Post Type
+function casestudies_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Case Studies', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Case Study', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Case Studies', 'text_domain' ),
+		'name_admin_bar'        => __( 'Case Study', 'text_domain' ),
+		'archives'              => __( 'Item Archives', 'text_domain' ),
+		'attributes'            => __( 'Item Attributes', 'text_domain' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
+		'all_items'             => __( 'All Items', 'text_domain' ),
+		'add_new_item'          => __( 'Add New Item', 'text_domain' ),
+		'add_new'               => __( 'Add New', 'text_domain' ),
+		'new_item'              => __( 'New Item', 'text_domain' ),
+		'edit_item'             => __( 'Edit Item', 'text_domain' ),
+		'update_item'           => __( 'Update Item', 'text_domain' ),
+		'view_item'             => __( 'View Item', 'text_domain' ),
+		'view_items'            => __( 'View Items', 'text_domain' ),
+		'search_items'          => __( 'Search Item', 'text_domain' ),
+		'not_found'             => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+		'featured_image'        => __( 'Featured Image', 'text_domain' ),
+		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+		'items_list'            => __( 'Items list', 'text_domain' ),
+		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Case Study', 'text_domain' ),
+		'description'           => __( 'Case Studies information page.', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'featured' ),
+		'taxonomies'            => array( 'category' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-clipboard',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'casestudies', $args );
+
+}
+add_action( 'init', 'casestudies_post_type', 0 );
+
+add_action( 'init', 'datos_taxonomies', 0 );
+
+function datos_taxonomies() {
+
+    // Product Type Taxonomy
+    $product_cat_labels = array(
+        'name'          => 'Case Studies Category',
+        'singular_name' => 'Case Studies Category',
+        'menu_name'     => 'Case Studies Categories'
+    );
+
+    $product_cat_args = array(
+        'labels'                     => $product_cat_labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        'rewrite'                    => array('pages' => true)
+    );
+    register_taxonomy( 'casestudies_category', array( 'casestudies' ), $product_cat_args );
+
+}
+
+// Move Yoast to bottom
+function yoasttobottom() {
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 //* Enqueue script to activate WOW.js
 add_action('wp_enqueue_scripts', 'sk_wow_init_in_footer');

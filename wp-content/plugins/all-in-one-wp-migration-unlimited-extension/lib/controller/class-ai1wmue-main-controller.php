@@ -69,7 +69,7 @@ class Ai1wmue_Main_Controller {
 		add_action( 'admin_init', array( $this, 'init' ) );
 
 		// All in One WP Migration
-		add_action( 'plugins_loaded', array( $this, 'ai1wm_loaded' ) );
+		add_action( 'plugins_loaded', array( $this, 'ai1wm_loaded' ), 20 );
 
 		return $this;
 	}
@@ -130,7 +130,7 @@ class Ai1wmue_Main_Controller {
 	 * @return array
 	 */
 	public function plugin_row_meta( $links, $file ) {
-		if ( $file == AI1WMUE_PLUGIN_BASENAME ) {
+		if ( $file === AI1WMUE_PLUGIN_BASENAME ) {
 			$links[] = __( '<a href="https://help.servmask.com/knowledgebase/unlimited-extension-user-guide/" target="_blank">User Guide</a>', AI1WMUE_PLUGIN_NAME );
 		}
 
@@ -152,8 +152,7 @@ class Ai1wmue_Main_Controller {
 	 * @return void
 	 */
 	public function init() {
-		// Set Purchase ID
-		if ( ! get_option( 'ai1wmue_plugin_key' ) ) {
+		if ( AI1WMUE_PURCHASE_ID ) {
 			update_option( 'ai1wmue_plugin_key', AI1WMUE_PURCHASE_ID );
 		}
 	}

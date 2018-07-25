@@ -1,9 +1,9 @@
 /*!
-Theme Name: starter-theme
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
+Theme Name: Datos Professional Solutions
+Theme URI: http://www.datos.co.uk/
+Author: Cornell Studios
+Author URI: https://cornellstudios.com/
+Description: Datos Professional Solutions
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -101,9 +101,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "pages/footer";
 
 /*--------------------------------------------------------------
-# Homepage
+# Pages
 --------------------------------------------------------------*/
 @import "pages/home";
+@import "pages/contact";
 
 /*--------------------------------------------------------------
 # Content
@@ -125,6 +126,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+@import "media/bxslider";
 
 /*--------------------------------------------------------------
 # Bootstrap

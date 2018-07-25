@@ -41,6 +41,7 @@ define( 'LAB_INTERVAL', 180 ); // seconds, push interval
 define( 'LAB_DNS_TTL', 3 * 24 * 3600 ); // seconds, interval of updating DNS cache for nodes IPs
 define( 'LAB_IP_OK', 100 ); // an ideal, the best possible reputation
 define( 'LAB_KEY_LENGTH', 32 );
+define( 'LAB_LICENSE_GRACE', 3600 * 24 * 3 );
 
 /**
  * Is IP blocked globally in Cerber Lab?
@@ -100,7 +101,7 @@ function lab_get_reputation( $ip, $ask = true ) {
 		return LAB_IP_OK;
 	}
 
-	$reputation = $wpdb->get_var( 'SELECT reputation FROM ' . CERBER_LAB_IP_TABLE . ' WHERE ip = "' . $ip . '"' );
+	$reputation = cerber_db_get_var( 'SELECT reputation FROM ' . CERBER_LAB_IP_TABLE . ' WHERE ip = "' . $ip . '"' );
 	if ( is_numeric( $reputation ) ) {
 		return $reputation;
 	}
@@ -159,7 +160,7 @@ function lab_reputation_update( $ip, $ip_data ) {
 	$reputation = absint( $ip_data['reputation']['value'] );
 	$expires    = time() + absint( $ip_data['reputation']['ttl'] );
 
-	if ( $wpdb->get_var( 'SELECT COUNT(ip) FROM ' . CERBER_LAB_IP_TABLE . ' WHERE ip = "' . $ip . '"' ) ) {
+	if ( cerber_db_get_var( 'SELECT COUNT(ip) FROM ' . CERBER_LAB_IP_TABLE . ' WHERE ip = "' . $ip . '"' ) ) {
 		$wpdb->query( 'UPDATE ' . CERBER_LAB_IP_TABLE . ' SET reputation = ' . $reputation . ', expires = ' . $expires . ' WHERE ip = "' . $ip . '"' );
 	}
 	else {
@@ -179,7 +180,9 @@ function lab_api_send_request($workload = array()) {
 
 	$push = lab_get_push();
 
-	if (!$workload && !$push) return false;
+	if ( ! $workload && ! $push ) {
+		return false;
+	}
 
 	$key = lab_get_key();
 
@@ -278,7 +281,7 @@ function lab_send_request($request, $node_id = null, $scheme = null) {
 	//curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
 
 	$start = microtime( true );
-	$data = curl_exec($curl);
+	$data = @curl_exec($curl);
 	$stop  = microtime( true );
 
 	//if (!$data) // curl_error($curl) . curl_errno($curl) );
@@ -458,7 +461,7 @@ function lab_status(){
 	$nodes = lab_get_nodes();
 	if (empty($nodes['nodes'])) return $ret . '<p>No information. No request has been made yet.</p>';
 
-	$ret .= '<table id="lab-status"><tr><th>Node</th><th>Processing time</th><th>Operational status</th><th>Info</th><th>IP address</th><th>Last request</th><th>Protocol used</th></tr>';
+	$ret .= '<table id="lab-status"><tr><th>Node</th><th>Processing time</th><th>Operational status</th><th>Info</th><th>IP address</th><th>Location</th><th>Last request</th><th>Protocol</th></tr>';
 	foreach ( $nodes['nodes'] as $id => $node ) {
 		$delay = round(1000 * $node['last'][0]) . ' ms';
 		$ago = cerber_ago_time($node['last'][3]);
@@ -472,7 +475,13 @@ function lab_status(){
 			$status = 'Down';
 			$delay = 'Unknown';
 		}
-		$ret .= '<tr class="'.$class.'"><td>'.$id.'</td><td>'.$delay.'</td><td>'.$status.'</td><td>'.$node['last'][2].'</td><td>'.$node['last'][5].'</td><td>'.$ago.'</td><td>'.$node['last'][4].'</td><td>';
+		if ( $country = lab_get_country( $node['last'][5], false ) ) {
+			$country = cerber_country_name( $country );
+		}
+		else {
+			$country = '';
+		}
+		$ret .= '<tr class="'.$class.'"><td>'.$id.'</td><td>'.$delay.'</td><td>'.$status.'</td><td>'.$node['last'][2].'</td><td>'.$node['last'][5].'</td><td>'.$country.'</td><td>'.$ago.'</td><td>'.$node['last'][4].'</td><td>';
 	}
 	$ret .= '</table>';
 
@@ -554,33 +563,31 @@ function lab_get_push() {
 	return false;
 }
 function lab_trunc_push(){
-	global $wpdb;
-	$wpdb->query( 'TRUNCATE TABLE ' . CERBER_LAB_TABLE );
+	//global $wpdb;
+	//$wpdb->query( 'TRUNCATE TABLE ' . CERBER_LAB_TABLE );
+	cerber_db_query( 'TRUNCATE TABLE ' . CERBER_LAB_TABLE );
 }
 
-add_action( 'shutdown', function () {
-	cerber_push_lab();
-} );
-
+register_shutdown_function( 'cerber_push_lab' );
 function cerber_push_lab() {
 	if ( ! crb_get_settings( 'cerberlab' ) ) {
 		return;
 	}
-	// TODO: replace with my own cache code because wp_cache_get doesn't work with expiration
-	if ( get_transient( '_cerberpush_' ) ) {
-	//if ( wp_cache_get( '_cerberpush_', 'cerber' ) ) { // wp_cache_get doesn't work with expiration
+	if ( cerber_get_set( '_cerberpush_', null, false ) ) {
+	//if ( get_transient( '_cerberpush_' ) ) {
+		//if ( wp_cache_get( '_cerberpush_', 'cerber' ) ) { // wp_cache_get doesn't work with expiration
 		return;
 	}
 	lab_api_send_request();
-	set_transient( '_cerberpush_', 1, LAB_INTERVAL );
-	//wp_cache_set( '_cerberpush_', 1, 'cerber', LAB_INTERVAL);
+	//set_transient( '_cerberpush_', 1, LAB_INTERVAL );
+	cerber_update_set( '_cerberpush_', 1, null, false, time() + LAB_INTERVAL );
 }
 
-function lab_get_key( $regenerate = false, $nocache = false) {
+function lab_get_key( $refresh = false, $nocache = false) {
 	static $key = null;
 
 	if ( ! isset( $key ) || $nocache ) {
-		if (is_admin()) {
+		if ( is_admin() ) {
 			$key = get_site_option( '_cerberkey_' ); // must be from the session cache only
 		}
 		else {
@@ -588,28 +595,56 @@ function lab_get_key( $regenerate = false, $nocache = false) {
 		}
 	}
 
-	if ( $regenerate || ! $key || ! is_array( $key ) ) {
+	if ( $refresh || ! $key || ! is_array( $key ) ) {
 
-		if ( is_multisite() ) {
-			$home = network_home_url();
-		} else {
-			$home = home_url();
+		if ( empty( $key ) || ! is_array( $key ) ) {
+			$key = array();
 		}
-		if ( $host = parse_url( $home, PHP_URL_HOST ) ) {
-			$site_id = md5( $host );
-		} else {
-			$site_id = md5( $home );
+
+		if ( empty( $key[0] ) ) {
+			$key[0] = lab_gen_site_id();
 		}
+		else {
+			// WP is installed in a subdirectory
+			if ( 2 < substr_count( home_url(), '/' ) ) {
+				$key[0] = lab_gen_site_id();
+			}
+		}
+
+		$key[1] = time();
+
+		if ( empty( $key[4] ) ) {
+			$key[4] = 'SK//' . str_shuffle( '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' );
+		}
+		/*
 		$new = array( $site_id, time() );
 		if ( isset( $key[2] ) ) {
 			$new[2] = $key[2];
 		}
 		$key = $new;
+		*/
 
-		update_site_option( '_cerberkey_', $new );
+		update_site_option( '_cerberkey_', $key );
 	}
 
 	return $key;
+}
+
+// @since 7.1
+function lab_gen_site_id() {
+	if ( is_multisite() ) {
+		$home = network_home_url();
+	}
+	else {
+		$home = home_url();
+	}
+
+	$home = rtrim( trim( $home ), '/' );
+	$id   = substr( $home, strpos( $home, '//' ) + 2 );
+
+	$site_id = md5( $id );
+
+	return $site_id;
 }
 
 function lab_update_key( $lic, $expires = 0 ) {
@@ -659,7 +694,7 @@ function lab_lab( $with_date = false ) {
 	if ( empty( $key[2] ) || empty( $key[3] ) ) {
 		return false;
 	}
-	if ( time() > ( $key[3] + 86400 ) ) {  // Plus grace period
+	if ( time() > ( $key[3] + LAB_LICENSE_GRACE ) ) {
 		return false;
 	}
 	if ( ! $with_date ) {
@@ -676,7 +711,7 @@ function lab_indicator(){
 	if ( lab_is_cloud_ok() && lab_lab() ) {
 		$key = lab_get_key();
 		$sid = 'Site ID: '.$key[0];
-		return '<div title="'.$sid.'" style="float: right; font-weight: normal; font-size: 80%; padding: 0.35em 0.6em 0.35em 0.6em; color: #fff; background-color: #29AD16;"><span style="vertical-align: top; line-height: 1;" class="dashicons dashicons-shield-alt"></span></div>';
+		return '<div title="'.$sid.'" style="float: right; font-weight: normal; font-size: 80%; padding: 0.35em 0.6em 0.35em 0.6em; color: #fff; background-color: #00ae65cc;"><span style="vertical-align: top; line-height: 1;" class="dashicons dashicons-shield-alt"></span></div>';
 		//return '<div title="'.$sid.'" style="float: right; font-weight: normal; font-size: 80%; padding: 0.35em 0.6em 0.35em 0.6em; color: #fff; background-color: #51AE43;"><span style="vertical-align: top; line-height: 1;" class="dashicons dashicons-yes"></span> Cerber Security Cloud Protection is active</div>';
 	}
 
@@ -693,7 +728,9 @@ function lab_opt_in(){
 	global $cerber_shown, $crb_assets_url;
 
 	if ($cerber_shown || crb_get_settings('cerberlab')) return;
-	if (!cerber_is_admin_page(false)) return;
+	if ( ! cerber_is_admin_page() ) {
+		return;
+	}
 
 	// Avoid more than one message on the screen
 	// TODO: to many checks!
@@ -808,7 +845,7 @@ function lab_get_country( $ip, $cache_only = true ) {
 			$where = ' WHERE ip = "' . $item . '"';
 		}
 
-		$country = $wpdb->get_var( 'SELECT country FROM ' . CERBER_LAB_NET_TABLE . $where );
+		$country = cerber_db_get_var( 'SELECT country FROM ' . CERBER_LAB_NET_TABLE . $where );
 
 		if ( $country ) {
 			$ret[ $ip_id ] = $country;
@@ -869,7 +906,7 @@ function lab_geo_update( $ip = '', $data = array() ) {
 		$where = ' WHERE ip = "' . $ip . '"';
 	}
 
-	$exists = $wpdb->get_var( 'SELECT ip FROM ' . CERBER_LAB_NET_TABLE . $where );
+	$exists = cerber_db_get_var( 'SELECT ip FROM ' . CERBER_LAB_NET_TABLE . $where );
 
 	if ($exists){
 		$wpdb->query( 'UPDATE ' . CERBER_LAB_NET_TABLE . " SET expires = $expires, country = '$code' $where");
@@ -883,7 +920,7 @@ function lab_geo_update( $ip = '', $data = array() ) {
 	if ( ! empty( $data['network']['geo']['country'] ) ) {
 		foreach ( $data['network']['geo']['country'] as $locale => $name ) {
 			$where  = ' WHERE country = "' . $code . '" AND locale = "' . $locale . '"';
-			$exists = $wpdb->get_var( 'SELECT country FROM ' . CERBER_GEO_TABLE . $where );
+			$exists = cerber_db_get_var( 'SELECT country FROM ' . CERBER_GEO_TABLE . $where );
 
 			if ( ! $exists ) {
 				$wpdb->query( 'INSERT INTO ' . CERBER_GEO_TABLE . ' (country, locale, country_name) VALUES ("' . $code . '","' . $locale . '","' . $name . '")' );
@@ -902,4 +939,39 @@ function lab_cleanup_cache() {
 	}
 	$wpdb->query( 'TRUNCATE TABLE ' . CERBER_LAB_NET_TABLE );
 	$wpdb->query( 'TRUNCATE TABLE ' . CERBER_LAB_IP_TABLE );
+}
+
+/**
+ * Return node ID for the current request if it is originated from the Cerber Cloud
+ *
+ * @return bool|int Node ID if the current request comes from a valid node or false otherwise
+ */
+function lab_get_real_node_id() {
+	static $ret;
+
+	if ( $ret !== null ) {
+		return $ret;
+	}
+
+	$hostname = @gethostbyaddr( cerber_get_remote_ip() );
+	if ( ! $hostname || filter_var( $hostname, FILTER_VALIDATE_IP ) ) {
+		$ret = false;
+
+		return $ret;
+	}
+	$domain = array_slice( explode( '.', $hostname ), - 3, 3 );
+	if ( ! $domain || count( $domain ) != 3 ) {
+		$ret = false;
+
+		return $ret;
+	}
+	if ( $domain[1] . '.' . $domain[2] !== 'cerberlab.net' ) {
+		$ret = false;
+
+		return $ret;
+	}
+
+	$ret = absint( substr( $domain[0], 4, 2 ) ); // 0-99
+
+	return $ret;
 }

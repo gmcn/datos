@@ -14,12 +14,38 @@
 	</div><!-- #content -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'starting-theme' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'starting-theme' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'starting-theme' ), 'starting-theme', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+	<footer>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 footer__left">
+					<div class="row">
+						<div class="col-md-3">
+							<a href="">Request a Demo</a>
+						</div><!-- /.col-md-6 -->
+						<div class="col-md-9 menu">
+
+							<?php wp_nav_menu( array(
+								'theme_location' => 'footer-products', ) );
+								?>
+
+						</div><!-- /.col-md-6 -->
+					</div><!-- /.row -->
+				</div>
+				<div class="col-md-6 footer__right">
+					<div class="row">
+						<div class="col-md-4 tel">
+							<a href="tel:+44 28 3836 2002">T. +44 28 3836 2002</a>
+						</div><!-- /.col-md-4 -->
+						<div class="col-md-4 byline">
+							Site by <a href="https://cornellstudios.com/" target="_blank">Cornell</a>
+						</div><!-- /.col-md-4 -->
+						<div class="col-md-4 copyright">
+							© Datos Professional Solutions <?php echo date('Y'); ?>
+						</div><!-- /.col-md-4 -->
+					</div><!-- /.row -->
+				</div><!-- /.col-md-6 -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
