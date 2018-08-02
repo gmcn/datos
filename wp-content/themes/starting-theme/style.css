@@ -959,6 +959,10 @@ footer {
 /*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
+/* line 2, sass/pages/_elements.scss */
+.headerimg img {
+  width: 100%; }
+
 @media screen and (min-width: 992px) {
   /* line 1, sass/pages/_home.scss */
   .site-content {
@@ -1155,6 +1159,82 @@ footer {
     -o-transform: translateY(-50%);
     transform: translateY(-50%); }
 
+/* line 1, sass/pages/_products.scss */
+.content__wrapper {
+  background: #eeebeb; }
+
+/* line 4, sass/pages/_products.scss */
+.content {
+  padding: 50px 0;
+  font-size: 15px;
+  background: #fff;
+  margin: 15px 0;
+  margin-top: -30px;
+  position: relative; }
+  /* line 11, sass/pages/_products.scss */
+  .content .intro {
+    margin-bottom: 80px; }
+    /* line 13, sass/pages/_products.scss */
+    .content .intro .icon {
+      margin-top: 15px; }
+  /* line 17, sass/pages/_products.scss */
+  .content h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700; }
+  /* line 22, sass/pages/_products.scss */
+  .content h2 {
+    color: #3486bd;
+    font-size: 30px;
+    margin: 0 0 20px 0;
+    font-weight: 700; }
+  /* line 28, sass/pages/_products.scss */
+  .content .intro_text {
+    font-size: 40px;
+    color: #a6a4a4;
+    font-weight: 700; }
+  /* line 33, sass/pages/_products.scss */
+  .content .intro_sub_text {
+    color: #a6a4a4; }
+  /* line 36, sass/pages/_products.scss */
+  .content .cta__wrapper {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 80px; }
+  /* line 41, sass/pages/_products.scss */
+  .content .product {
+    text-align: center; }
+    /* line 43, sass/pages/_products.scss */
+    .content .product__cta {
+      background: grey;
+      color: #fff;
+      margin-top: -20px;
+      position: relative;
+      padding: 4px 8px; }
+    /* line 50, sass/pages/_products.scss */
+    .content .product img {
+      width: 100%; }
+
+/* line 56, sass/pages/_products.scss */
+.sellingpoints {
+  color: #928f8f; }
+  /* line 58, sass/pages/_products.scss */
+  .sellingpoints h3 {
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: 700; }
+    /* line 62, sass/pages/_products.scss */
+    .sellingpoints h3 span {
+      background: #ffd200;
+      width: 26px;
+      border-radius: 0 10px 10px 0;
+      padding: 5px 0;
+      margin-right: 10px;
+      color: #fff;
+      display: inline-block;
+      text-align: center;
+      font-weight: 500; }
+
 /* line 1, sass/pages/_contact.scss */
 iframe {
   display: block; }
@@ -1174,58 +1254,65 @@ iframe {
   /* line 17, sass/pages/_contact.scss */
   .page-template-page-contact .content span {
     font-size: 12px; }
-/* line 21, sass/pages/_contact.scss */
+  /* line 20, sass/pages/_contact.scss */
+  .page-template-page-contact .content a {
+    font-weight: 700;
+    color: #818181; }
+  /* line 24, sass/pages/_contact.scss */
+  .page-template-page-contact .content a:hover {
+    color: #abbd0f; }
+/* line 28, sass/pages/_contact.scss */
 .page-template-page-contact .contactform {
   border-left: 1px solid #d3d2d2;
   font-family: 'Montserrat', sans-serif !important; }
-  /* line 24, sass/pages/_contact.scss */
+  /* line 31, sass/pages/_contact.scss */
   .page-template-page-contact .contactform .frm_style_formidable-style.with_frm_style .frm_form_fields > fieldset, .page-template-page-contact .contactform label, .page-template-page-contact .contactform .frm_submit button {
     font-family: 'Montserrat', sans-serif !important; }
-  /* line 27, sass/pages/_contact.scss */
+  /* line 34, sass/pages/_contact.scss */
   .page-template-page-contact .contactform .frm_style_formidable-style.with_frm_style label.frm_primary_label {
     display: none; }
-  /* line 30, sass/pages/_contact.scss */
+  /* line 37, sass/pages/_contact.scss */
   .page-template-page-contact .contactform p {
     color: #515252;
     font-weight: 700;
     padding-bottom: 10px; }
-  /* line 35, sass/pages/_contact.scss */
+  /* line 42, sass/pages/_contact.scss */
   .page-template-page-contact .contactform input[type=text], .page-template-page-contact .contactform input[type=email], .page-template-page-contact .contactform input[type=tel], .page-template-page-contact .contactform textarea {
     background: #d3d2d2;
     border-radius: 0;
     color: #fff;
     font-family: "Montserrat", sans-serif; }
-  /* line 41, sass/pages/_contact.scss */
+  /* line 48, sass/pages/_contact.scss */
   .page-template-page-contact .contactform input[type=text]:focus, .page-template-page-contact .contactform input[type=email]:focus, .page-template-page-contact .contactform input[type=tel]:focus, .page-template-page-contact .contactform textarea:focus {
     background: #d3d2d2;
     color: #fff;
     font-family: "Montserrat", sans-serif; }
-  /* line 46, sass/pages/_contact.scss */
+  /* line 53, sass/pages/_contact.scss */
   .page-template-page-contact .contactform .submit {
     text-align: right;
     font-family: 'Montserrat', sans-serif; }
-    /* line 49, sass/pages/_contact.scss */
+    /* line 56, sass/pages/_contact.scss */
     .page-template-page-contact .contactform .submit .frm_button_submit {
       background: #868484;
       color: #fff;
       padding: 10px 20px;
       border-radius: 0; }
-  /* line 56, sass/pages/_contact.scss */
+  /* line 63, sass/pages/_contact.scss */
   .page-template-page-contact .contactform ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: #fff !important;
     font-family: "Montserrat", sans-serif; }
-  /* line 60, sass/pages/_contact.scss */
+  /* line 67, sass/pages/_contact.scss */
   .page-template-page-contact .contactform ::-moz-placeholder {
     /* Firefox 19+ */
     color: #fff !important;
     font-family: "Montserrat", sans-serif; }
-  /* line 64, sass/pages/_contact.scss */
+  /* line 71, sass/pages/_contact.scss */
   .page-template-page-contact .contactform :-ms-input-placeholder {
     /* IE 10+ */
     color: #fff !important;
     font-family: "Montserrat", sans-serif; }
-  /* line 68, sass/pages/_contact.scss */
+  /* line 75, sass/pages/_contact.scss */
   .page-template-page-contact .contactform :-moz-placeholder {
     /* Firefox 18- */
     color: #fff !important;

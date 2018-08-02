@@ -1,0 +1,74 @@
+.content__wrapper {
+  background: #eeebeb;
+}
+.content {
+  padding: 50px 0;
+  font-size: 15px;
+  background: #fff;
+  margin: 15px 0;
+  margin-top: -30px;
+  position: relative;
+  .intro {
+    margin-bottom: 80px;
+    .icon {
+      margin-top: 15px;
+    }
+  }
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  h2 {
+    color: #3486bd;
+    font-size: 30px;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+  }
+  .intro_text {
+    font-size: 40px;
+    color: #a6a4a4;
+    font-weight: 700;
+  }
+  .intro_sub_text {
+    color: #a6a4a4;
+  }
+  .cta__wrapper {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 80px;
+  }
+  .product {
+    text-align: center;
+    &__cta {
+      background: grey;
+      color: #fff;
+      margin-top: -20px;
+      position: relative;
+      padding: 4px 8px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.sellingpoints {
+  color: #928f8f;
+  h3 {
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    span {
+      background: #ffd200;
+      width: 26px;
+      border-radius: 0 10px 10px 0;
+      padding: 5px 0;
+      margin-right: 10px;
+      color: #fff;
+      display: inline-block;
+      text-align: center;
+      font-weight: 500;
+    }
+  }
+}

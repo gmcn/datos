@@ -103,7 +103,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
+@import "pages/elements";
 @import "pages/home";
+@import "pages/products";
 @import "pages/contact";
 
 /*--------------------------------------------------------------

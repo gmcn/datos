@@ -17,6 +17,13 @@ iframe {
     span {
       font-size: 12px;
     }
+    a {
+      font-weight: 700;
+      color: #818181;
+    }
+    a:hover {
+      color: #abbd0f;
+    }
   }
   .contactform {
     border-left: 1px solid #d3d2d2;
