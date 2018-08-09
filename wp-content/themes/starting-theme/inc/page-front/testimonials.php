@@ -15,7 +15,7 @@
           <li class="bx-clone">
             <div class="vert-align">
             <h5>What customers say about Season</h5>
-            <a href="/casestudies">view all testimonials ></a>
+            <a href="/testimonials_category/testimonials/">view all testimonials ></a>
             </div>
           </li>
         <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>

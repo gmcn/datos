@@ -32,7 +32,7 @@ $child_query = new WP_Query( $args );
 
   ?>
 
-  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 product">
+  <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 product wow <?php if ($i % 2) : ?>fadeInDown <?php else : ?>fadeInUp <?php endif; ?> ">
 
     <a href="<?php echo the_permalink() ?>">
       <img src="<?php echo $thumb ?>" alt="<?php the_title(); ?>"  />
@@ -55,7 +55,7 @@ $child_query = new WP_Query( $args );
 
 		?>
 
-		<div class="col-md-4">
+		<div class="col-md-4 wow fadeInUp sellingpoint">
 
       <h3><span><?php echo $i ?></span><?php echo $title; ?></h3>
       <?php echo $copy; ?>

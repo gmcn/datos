@@ -1,0 +1,192 @@
+.content-casestudies {
+  padding: 50px 0;
+  font-size: 15px;
+  background: #fff;
+  margin: 15px 0;
+  h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: #d9d9d9;
+    margin-bottom: 25px;
+  }
+  h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: #7e7d7d;
+    width: 70%;
+  }
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 25px 0 50px;
+    border-top: 2px solid #7e7d7d;
+    border-bottom: 2px solid #7e7d7d;
+    margin-top: 10px;
+    a {
+      color: #c2c1c1;
+      font-weight: 500;
+      font-size: 18px;
+    }
+    a:hover {
+      color: #abbd0f;
+    }
+    li {
+      float: left;
+      margin-right: 15px;
+      ul.children {
+        display: none;
+      }
+    }
+    li:hover {
+      position: relative;
+      ul.children {
+        display: block;
+        list-style: none;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        background-color: #abbd0f;
+        padding: 10px 20px;
+        margin: 0;
+        z-index: 9999;
+        border-top: none;
+        border-bottom: none;
+        li {
+          display: block;
+          width: 100%;
+          color: #fff;
+          a {
+            color: #fff;
+          }
+          a:hover {
+            color: #c2c1c1;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.pagination {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 0 !important;
+  width: 100%;
+  text-align: center;
+  .current {
+    color: #fff;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  a {
+    color: rgba(255,255,255,.6);
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  a:hover {
+    color: #fff;
+  }
+}
+
+.casestudies-entry {
+  height: 350px;
+  text-align: center;
+  margin-bottom: 15px;
+  h2 {
+    background: #fff;
+    color: #676767;
+    font-size: 24px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 43%;
+    padding: 15px 15px;
+    left: 15%;
+    right: 15%;
+    margin: 0 auto;
+  }
+  h4 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 0;
+    padding: 15px 15px;
+    left: 40%;
+    right: 40%;
+    margin: 0 auto;
+    z-index: 999999
+  }
+  .suite {
+    background: #b4c609;
+  }
+  .office {
+    background: #39b0e5;
+  }
+  .factory {
+    background: #f8d716;
+  }
+  .online {
+    background: #c085b9;
+  }
+  .road {
+    background: #5fb878;
+  }
+  .pos {
+    background: #ed6a4d;
+  }
+  .crm {
+    background: #f46aa8;
+  }
+  .hover {
+    display: none;
+    transition: .5s;
+    h3 {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 25px 0;
+    }
+    a {
+      color: #fff;
+      margin: 25px 0;
+      text-transform: uppercase;
+      display: block;
+      font-weight: 700;
+    }
+    a:hover {
+      color: #abbd0f;
+    }
+  }
+  &:hover .hover {
+    display: block;
+    background: rgba(31,29,28,.9);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    color: #fff;
+    img {
+      margin-right: 20px;
+    }
+    .col-md-5 {
+      @include md {
+        border-right: 1px solid #fff;
+      }
+    }
+  }
+  .vert-align {
+      position: absolute;
+      top: 50%;
+      width: calc(100% - 30px);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+  }
+}

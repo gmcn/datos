@@ -16,6 +16,7 @@ get_header(); ?>
 
 <?php
 include(locate_template("inc/page-elements/header.php"));
+include(locate_template("inc/page-about/content.php"));
 ?>
 
 <?php

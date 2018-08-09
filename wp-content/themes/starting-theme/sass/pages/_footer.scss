@@ -19,7 +19,11 @@ footer {
       padding-top: 15px;
       min-height: 50px;
     }
+    .row {
+      height: 70px;
+    }
     .byline {
+      height: 100%;
       a {
         color: #fff;
       }
@@ -28,6 +32,7 @@ footer {
       }
     }
     .tel {
+      height: 100%;
       a {
         font-size: 16px;
         font-weight: 700;
@@ -36,6 +41,9 @@ footer {
       a:hover {
         color: #abbe0e;
       }
+    }
+    .copyright {
+      height: 100%;
     }
   }
 
@@ -115,5 +123,15 @@ footer {
   a {
     // margin-top: 8px;
     color: #fff;
+  }
+  .vert-align {
+    position: absolute;
+    top: 50%;
+    width: calc(100% - 30px);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }

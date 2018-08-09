@@ -1,0 +1,44 @@
+.industry {
+  h1 {
+    color: #515252;
+  }
+}
+
+hr {
+border-top: 2px solid #6f6e6e !important;
+}
+
+.column_1, .column_2 {
+  color: #a6a4a4;
+  p {
+    font-size: 16px;
+  }
+  p:first-of-type {
+    font-weight: 700;
+    font-size: 26px
+  }
+}
+
+.intro-industry {
+  .wrapper {
+    padding: 50px 0;
+    border-top: 2px solid #6f6e6e;
+    border-bottom: 2px solid #6f6e6e;
+  }
+  iframe {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .col-lg-3 {
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+  }
+}
+
+.gallery {
+  height: 150px;
+  .gallery_wrapper {
+    height: 100%;
+    position: relative;
+  }
+}

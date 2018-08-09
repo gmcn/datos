@@ -34,13 +34,19 @@
 				<div class="col-md-6 footer__right">
 					<div class="row">
 						<div class="col-md-4 tel">
-							<a href="tel:+44 28 3836 2002">T. +44 28 3836 2002</a>
+							<div class="vert-align">
+								<a href="tel:+44 28 3836 2002">T. +44 28 3836 2002</a>
+							</div>
 						</div><!-- /.col-md-4 -->
 						<div class="col-md-4 byline">
-							Site by <a href="https://cornellstudios.com/" target="_blank">Cornell</a>
+							<div class="vert-align">
+								Site by <a href="https://cornellstudios.com/" target="_blank">Cornell</a>
+							</div>
 						</div><!-- /.col-md-4 -->
 						<div class="col-md-4 copyright">
-							© Datos Professional Solutions <?php echo date('Y'); ?>
+							<div class="vert-align">
+								© Datos Professional Solutions <?php echo date('Y'); ?>
+							</div>
 						</div><!-- /.col-md-4 -->
 					</div><!-- /.row -->
 				</div><!-- /.col-md-6 -->

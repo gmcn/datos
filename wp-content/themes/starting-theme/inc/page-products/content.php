@@ -7,7 +7,7 @@ $intro_sub_text = get_field('intro_sub_text');
 $product_selling_points = get_field('product_selling_points');
 
  ?>
-  <div class="container-fluid content">
+  <div class="container-fluid content products">
 
     <div class="row intro">
       <div class="col-md-2">

@@ -8,6 +8,8 @@
     $('.products').matchHeight();
     $('.product').matchHeight();
     $('.bx-clone').matchHeight();
+    $('.gallery').matchHeight();
+    $('.sellingpoint').matchHeight();
   }
   window.onload = startMatchHeight;
 
@@ -20,6 +22,10 @@
   speed: 1500,
   // pause: 5000,
   });
+
+  $(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
 
 } ) (jQuery);
 

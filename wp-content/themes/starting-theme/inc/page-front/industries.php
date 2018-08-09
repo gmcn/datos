@@ -31,7 +31,7 @@ $section_heading = get_field('section_heading');
             <div class="inner">
               <h4 class=""><?php echo $industryTitle ?></h4>
 
-              <a href="<?php echo $productLink ?>">Click here to see more ></a>
+              <a href="<?php echo $link_to_more ?>">Click here to see more ></a>
             </div>
           </div>
 
