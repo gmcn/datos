@@ -26,17 +26,20 @@ $the_query = new WP_Query( $args ); ?>
       ?>
 
 
-        <div class="col-sm-6 col-md-4 col-lg-3 news-entry wow <?php if ($i % 2) : ?>fadeinLeft <?php else : ?> fadein<?php endif; ?> <?php foreach((get_the_category()) as $category){ echo $category->slug; echo category_description($category); }?>" style="background: url(<?php echo $thumb ?>); background-size: cover">
-          <div class="hover">
-            <div class="vert-align">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/read-more.jpg" alt="<?php the_title(); ?>"><br  />
-              <a href="<?php the_permalink() ?>">Click here to read more</a>
+        <div class="col-sm-6 col-md-4 col-lg-3 news-entry wow <?php if ($i % 2) : ?>fadeinLeft <?php else : ?> fadein<?php endif; ?> <?php foreach((get_the_category()) as $category){ echo $category->slug; echo category_description($category); }?>">
+          <div class="wrapper" style="background: url(<?php echo $thumb ?>); background-size: cover; height: 100%;">
+            <div class="hover">
+              <div class="vert-align">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/read-more.jpg" alt="<?php the_title(); ?>"><br  />
+                <a href="<?php the_permalink() ?>">Click here to read more</a>
+              </div>
             </div>
+            <div class="date">
+              <?php echo get_the_date('jS F Y'); ?>
+            </div>
+      		    <h2><?php the_title(); ?></h2>
           </div>
-          <div class="date">
-            <?php echo get_the_date('jS F Y'); ?>
-          </div>
-    		    <h2><?php the_title(); ?></h2>
+
         </div>
     	<?php $i++; endwhile; ?>
     	<!-- end of the loop -->

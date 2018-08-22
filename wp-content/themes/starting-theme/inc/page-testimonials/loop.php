@@ -11,7 +11,7 @@
 
     <div class="col-md-6 testimonial-entry wow fadeinUp">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 title">
           <div class="vert-align">
             <h2><?php the_title(); ?></h2>
             <a href="<?php the_permalink(); ?>">
@@ -27,7 +27,7 @@
             </p>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 no-gutter-left">
           <div class="wrapper" style="background: url(<?php echo $thumb[0] ?>) #000;">
             <div class="vert-align">
               <img src="<?php echo $company_logo ?>" alt="<?php the_title(); ?>" />

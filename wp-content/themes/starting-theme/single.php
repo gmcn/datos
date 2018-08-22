@@ -17,10 +17,20 @@ include(locate_template("inc/page-elements/header.php"));
 
 <?php
 include(locate_template("inc/page-news/content.php"));
-//include(locate_template("inc/page-industry/child-loop.php"));
 ?>
 
 </div>
+
+<?php
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+if (strpos($url,'casestudies')) {
+    include(locate_template("inc/page-casestudies/related.php"));
+} else {
+    include(locate_template("inc/page-news/related.php"));
+}
+
+?>
 
 <?php
 //get_sidebar();

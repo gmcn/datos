@@ -35,13 +35,13 @@ $intro_text = get_field('intro_text');
       ) ); ?>
     </ul>
 
-    <form action="/" method="get">
+    <!-- <form action="/" method="get">
     <div class="container">
       <input type="text" value="" placeholder="Search.." name="s">
       <button type="submit"><img src="<?php echo get_template_directory_uri(); ?>/images/search.png"  /></button>
     </div>
 
-  </form>
+  </form> -->
 
   </div>
 

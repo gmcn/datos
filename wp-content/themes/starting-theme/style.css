@@ -991,11 +991,30 @@ footer {
 # Pages
 --------------------------------------------------------------*/
 /* line 1, sass/pages/_elements.scss */
+#page {
+  overflow: hidden; }
+
+/* line 5, sass/pages/_elements.scss */
 .headerimg {
   background: #eee; }
-  /* line 3, sass/pages/_elements.scss */
+  /* line 7, sass/pages/_elements.scss */
   .headerimg img {
     width: 100%; }
+
+/* line 12, sass/pages/_elements.scss */
+.no-gutter-left {
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
+  @media screen and (min-width: 992px) {
+    /* line 12, sass/pages/_elements.scss */
+    .no-gutter-left {
+      padding-left: 0 !important;
+      padding-right: 15px !important; } }
+
+/* line 21, sass/pages/_elements.scss */
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0; }
 
 @media screen and (min-width: 992px) {
   /* line 1, sass/pages/_home.scss */
@@ -1453,8 +1472,10 @@ p.filter {
 .news-entry {
   height: 350px;
   text-align: center;
-  margin-bottom: 15px; }
-  /* line 138, sass/pages/_news.scss */
+  margin-bottom: 15px;
+  padding-left: 7.5px !important;
+  padding-right: 7.5px !important; }
+  /* line 140, sass/pages/_news.scss */
   .news-entry .date {
     background: #b4c609;
     font-weight: 700;
@@ -1465,7 +1486,7 @@ p.filter {
     top: 0;
     left: 30%;
     right: 30%; }
-  /* line 149, sass/pages/_news.scss */
+  /* line 151, sass/pages/_news.scss */
   .news-entry h2 {
     background: #fff;
     color: #676767;
@@ -1477,30 +1498,30 @@ p.filter {
     left: 15%;
     right: 15%;
     margin: 0 auto; }
-  /* line 161, sass/pages/_news.scss */
+  /* line 163, sass/pages/_news.scss */
   .news-entry .hover {
     display: none;
     transition: .5s; }
-    /* line 164, sass/pages/_news.scss */
+    /* line 166, sass/pages/_news.scss */
     .news-entry .hover a {
       color: #fff; }
-    /* line 167, sass/pages/_news.scss */
+    /* line 169, sass/pages/_news.scss */
     .news-entry .hover a:hover {
       color: #abbd0f; }
-  /* line 171, sass/pages/_news.scss */
+  /* line 173, sass/pages/_news.scss */
   .news-entry:hover .hover {
     display: block;
     background: #1f1d1c;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
     z-index: 9999;
     left: 0;
     color: #fff; }
-    /* line 180, sass/pages/_news.scss */
+    /* line 182, sass/pages/_news.scss */
     .news-entry:hover .hover img {
       margin-bottom: 15px; }
-  /* line 184, sass/pages/_news.scss */
+  /* line 186, sass/pages/_news.scss */
   .news-entry .vert-align {
     position: absolute;
     top: 50%;
@@ -1707,44 +1728,44 @@ p.filter {
   height: 350px;
   text-align: center;
   margin-bottom: 100px;
-  background-color: #255f79;
   transition: .5s; }
-  /* line 7, sass/pages/_testimonials.scss */
-  .testimonial-entry:hover {
+  /* line 6, sass/pages/_testimonials.scss */
+  .testimonial-entry .title {
+    background-color: #255f79; }
+  /* line 9, sass/pages/_testimonials.scss */
+  .testimonial-entry .title:hover {
     background-color: #329dcf; }
-  /* line 10, sass/pages/_testimonials.scss */
+  /* line 12, sass/pages/_testimonials.scss */
   .testimonial-entry .row {
     height: 100%; }
-    /* line 12, sass/pages/_testimonials.scss */
+    /* line 14, sass/pages/_testimonials.scss */
     .testimonial-entry .row .col-md-6 {
       height: 100%; }
-    /* line 15, sass/pages/_testimonials.scss */
+    /* line 17, sass/pages/_testimonials.scss */
     .testimonial-entry .row .wrapper {
       height: 100%; }
-  /* line 19, sass/pages/_testimonials.scss */
+  /* line 21, sass/pages/_testimonials.scss */
   .testimonial-entry h2 {
     font-size: 26px;
     color: #fff;
     text-transform: uppercase;
     font-weight: 300; }
     @media screen and (min-width: 992px) {
-      /* line 19, sass/pages/_testimonials.scss */
+      /* line 21, sass/pages/_testimonials.scss */
       .testimonial-entry h2 {
-        width: 40%;
         margin: 0 auto; } }
-  /* line 29, sass/pages/_testimonials.scss */
+  /* line 30, sass/pages/_testimonials.scss */
   .testimonial-entry img {
     margin: 10px 0; }
-  /* line 32, sass/pages/_testimonials.scss */
+  /* line 33, sass/pages/_testimonials.scss */
   .testimonial-entry p {
     font-size: 16px;
     color: #fff;
     text-transform: uppercase;
     font-weight: 300; }
     @media screen and (min-width: 992px) {
-      /* line 32, sass/pages/_testimonials.scss */
+      /* line 33, sass/pages/_testimonials.scss */
       .testimonial-entry p {
-        width: 50%;
         margin: 0 auto; } }
   /* line 43, sass/pages/_testimonials.scss */
   .testimonial-entry .hover {
@@ -1798,6 +1819,18 @@ p.filter {
   margin-left: 50px;
   margin-bottom: 25px;
   display: block; }
+
+/* line 98, sass/pages/_testimonials.scss */
+.related-news h3 {
+  background: #abbe0e;
+  color: #fff;
+  padding: 10px 20px; }
+
+/* line 106, sass/pages/_testimonials.scss */
+.featured-testimonials h3 {
+  background: #21546e;
+  color: #fff;
+  padding: 10px 20px; }
 
 /* line 1, sass/pages/_contact.scss */
 iframe {

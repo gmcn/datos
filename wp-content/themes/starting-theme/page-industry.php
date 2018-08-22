@@ -23,6 +23,7 @@ include(locate_template("inc/page-elements/header.php"));
 <?php
 include(locate_template("inc/page-industry/content.php"));
 include(locate_template("inc/page-industry/child-loop.php"));
+include(locate_template("inc/page-industry/related.php"));
 ?>
 
 </div>
