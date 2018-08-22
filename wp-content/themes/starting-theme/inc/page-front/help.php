@@ -9,12 +9,12 @@
 
       <div class="col-md-4 wow fadeInRight">
         <p>
-          Send us an email with your requirements and we will contact you to discuss.
+          Send us an message with your requirements and we will contact you to discuss.
         </p>
       </div>
 
       <div class="col-md-2 wow fadeInRight">
-        <button>Continue</button>
+        <a href="/contact"><button>Continue</button></a>
       </div>
 
     </div>

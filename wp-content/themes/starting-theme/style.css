@@ -990,9 +990,12 @@ footer {
 /*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
-/* line 2, sass/pages/_elements.scss */
-.headerimg img {
-  width: 100%; }
+/* line 1, sass/pages/_elements.scss */
+.headerimg {
+  background: #eee; }
+  /* line 3, sass/pages/_elements.scss */
+  .headerimg img {
+    width: 100%; }
 
 @media screen and (min-width: 992px) {
   /* line 1, sass/pages/_home.scss */
@@ -1001,7 +1004,7 @@ footer {
 
 /* line 7, sass/pages/_home.scss */
 .hero {
-  padding-top: 280px;
+  padding-top: 230px;
   text-align: center;
   color: #fff;
   padding-bottom: 50px; }
@@ -1219,43 +1222,46 @@ footer {
     font-size: 30px;
     margin: 0 0 20px 0;
     font-weight: 700; }
-  /* line 28, sass/pages/_products.scss */
-  .content .intro_text {
+  /* line 29, sass/pages/_products.scss */
+  .content .intro_text p:first-of-type {
     font-size: 40px;
     line-height: 40px;
     color: #a6a4a4;
     font-weight: 700; }
-  /* line 34, sass/pages/_products.scss */
+  /* line 35, sass/pages/_products.scss */
+  .content .intro_text p {
+    color: #a6a4a4; }
+  /* line 39, sass/pages/_products.scss */
   .content .intro_sub_text {
     color: #a6a4a4; }
-  /* line 37, sass/pages/_products.scss */
+  /* line 42, sass/pages/_products.scss */
   .content .cta__wrapper {
     text-align: center;
     margin-top: -30px;
     margin-bottom: 80px; }
-  /* line 42, sass/pages/_products.scss */
+  /* line 47, sass/pages/_products.scss */
   .content .product {
     text-align: center; }
-    /* line 44, sass/pages/_products.scss */
+    /* line 49, sass/pages/_products.scss */
     .content .product__cta {
       background: grey;
       color: #fff;
       margin-top: -20px;
       position: relative;
       padding: 4px 8px; }
-    /* line 51, sass/pages/_products.scss */
+    /* line 56, sass/pages/_products.scss */
     .content .product img {
       width: 100%; }
 
-/* line 57, sass/pages/_products.scss */
+/* line 62, sass/pages/_products.scss */
 .sellingpoints {
   color: #928f8f; }
-  /* line 59, sass/pages/_products.scss */
+  /* line 64, sass/pages/_products.scss */
   .sellingpoints h3 {
     font-size: 25px;
     margin-bottom: 30px;
     font-weight: 700; }
-    /* line 63, sass/pages/_products.scss */
+    /* line 68, sass/pages/_products.scss */
     .sellingpoints h3 span {
       background: #ffd200;
       width: 26px;
@@ -1266,7 +1272,7 @@ footer {
       display: inline-block;
       text-align: center;
       font-weight: 500; }
-  /* line 75, sass/pages/_products.scss */
+  /* line 80, sass/pages/_products.scss */
   .sellingpoints ul {
     margin: 0; }
 
@@ -1700,7 +1706,7 @@ p.filter {
 .testimonial-entry {
   height: 350px;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 100px;
   background-color: #255f79;
   transition: .5s; }
   /* line 7, sass/pages/_testimonials.scss */
@@ -1783,6 +1789,15 @@ p.filter {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%); }
+
+/* line 88, sass/pages/_testimonials.scss */
+.testimonial-entry:after {
+  content: url(images/testimonails_after.png);
+  width: 43px;
+  height: 54px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  display: block; }
 
 /* line 1, sass/pages/_contact.scss */
 iframe {
@@ -1912,6 +1927,69 @@ iframe {
     font-size: 14px;
     font-weight: 500;
     line-height: 22px; }
+
+/* line 1, sass/pages/_support.scss */
+.support {
+  text-align: center;
+  margin-bottom: 15px; }
+  /* line 4, sass/pages/_support.scss */
+  .support h3 {
+    color: rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    display: block;
+    font-weight: 700;
+    font-size: 30px;
+    border-radius: 15px;
+    margin-bottom: 25px; }
+    /* line 12, sass/pages/_support.scss */
+    .support h3 .Factory {
+      background: #f8d716; }
+    /* line 15, sass/pages/_support.scss */
+    .support h3 .Office {
+      background: #3aabdd; }
+    /* line 18, sass/pages/_support.scss */
+    .support h3 .Online {
+      background: #b37ead; }
+    /* line 21, sass/pages/_support.scss */
+    .support h3 .Road {
+      background: #0d9c44; }
+    /* line 24, sass/pages/_support.scss */
+    .support h3 .CRM {
+      background: #db2f1e; }
+    /* line 27, sass/pages/_support.scss */
+    .support h3 .POS {
+      background: #f46aa8; }
+  /* line 31, sass/pages/_support.scss */
+  .support .wrapper-support {
+    margin: 0 5%;
+    border-radius: 15px;
+    font-size: 14px; }
+    /* line 35, sass/pages/_support.scss */
+    .support .wrapper-support p {
+      color: #fff;
+      text-align: left;
+      padding: 0 10% 20px; }
+    /* line 40, sass/pages/_support.scss */
+    .support .wrapper-support strong {
+      font-size: 14px; }
+  /* line 44, sass/pages/_support.scss */
+  .support .Factory {
+    background: #f8d716; }
+  /* line 47, sass/pages/_support.scss */
+  .support .Office {
+    background: #3aabdd; }
+  /* line 50, sass/pages/_support.scss */
+  .support .Online {
+    background: #b37ead; }
+  /* line 53, sass/pages/_support.scss */
+  .support .Road {
+    background: #0d9c44; }
+  /* line 56, sass/pages/_support.scss */
+  .support .CRM {
+    background: #db2f1e; }
+  /* line 59, sass/pages/_support.scss */
+  .support .POS {
+    background: #f46aa8; }
 
 /*--------------------------------------------------------------
 # Content

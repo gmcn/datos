@@ -35,7 +35,7 @@ $intro_text = get_field('intro_text');
 
     <?php if( is_tax( 'casestudies_category' ) ) : ?>
 
-    <?php $taxonomies = get_terms( 'casestudies_category', array( 'orderby' => 'id', 'order' => 'DESC', 'hide_empty' => 0, 'category__not_in' => 5 ) );
+    <?php $taxonomies = get_terms( 'casestudies_category', array( 'orderby' => 'id', 'order' => 'DESC', 'hide_empty' => 1, 'category__not_in' => 5 ) );
     if ( ! empty( $taxonomies ) && ! is_wp_error( $taxonomies ) ){
         echo '<ul class="tags">';
         foreach ( $taxonomies as $taxonomy ) {
@@ -62,7 +62,7 @@ $intro_text = get_field('intro_text');
 
     <?php if( is_tax( 'testimonials_category' ) ) : ?>
 
-    <?php $taxonomies = get_terms( 'testimonials_category', array( 'orderby' => 'id', 'order' => 'DESC', 'hide_empty' => 0, 'category__not_in' => 5 ) );
+    <?php $taxonomies = get_terms( 'testimonials_category', array( 'orderby' => 'title', 'order' => 'DESC', 'hide_empty' => 1, 'category__not_in' => 5 ) );
     if ( ! empty( $taxonomies ) && ! is_wp_error( $taxonomies ) ){
         echo '<ul class="tags">';
         foreach ( $taxonomies as $taxonomy ) {

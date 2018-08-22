@@ -1,7 +1,7 @@
 .testimonial-entry {
   height: 350px;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 100px;
   background-color: #255f79;
   transition: .5s;
   &:hover {
@@ -83,4 +83,13 @@
       -o-transform: translateY(-50%);
       transform: translateY(-50%);
   }
+}
+
+.testimonial-entry:after {
+    content: url(images/testimonails_after.png);
+    width: 43px;
+    height: 54px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    display: block;
 }

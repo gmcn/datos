@@ -45,4 +45,5 @@ $paragraph = get_field('paragraph');
     <?php endif; ?>
 
   </div><!-- /.container -->
+</div>
 </div><!-- /.container-fluid -->

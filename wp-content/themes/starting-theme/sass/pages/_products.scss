@@ -26,10 +26,15 @@
     font-weight: 700;
   }
   .intro_text {
-    font-size: 40px;
-    line-height: 40px;
-    color: #a6a4a4;
-    font-weight: 700;
+    p:first-of-type {
+      font-size: 40px;
+      line-height: 40px;
+      color: #a6a4a4;
+      font-weight: 700;
+    }
+    p {
+      color: #a6a4a4;
+    }
   }
   .intro_sub_text {
     color: #a6a4a4;

@@ -10,6 +10,7 @@
     $('.bx-clone').matchHeight();
     $('.gallery').matchHeight();
     $('.sellingpoint').matchHeight();
+    $('.wrapper-support').matchHeight();
   }
   window.onload = startMatchHeight;
 

@@ -69,4 +69,32 @@ $child_query = new WP_Query( $args );
 <?php endif; ?>
 
 
+<?php if( have_rows('support_information') ): ?>
+
+	<div class="row">
+
+	<?php $i = 0; while( have_rows('support_information') ): the_row();
+
+		// vars
+    $bg_img = get_sub_field('bg_img');
+		$title = get_sub_field('title');
+		$copy = get_sub_field('copy');
+
+		?>
+
+    <div class="col-sm-6 col-md-4 support wow fadeInDown">
+      <div class="wrapper-support <?php echo $title ?>" style="background-image: url(<?php echo $bg_img ?>); background-size: cover;">
+        <h3 class="<?php echo $title ?>"><?php echo $title ?></h3>
+        <?php echo $copy ?>
+      </div>
+    </div>
+
+
+	<?php $i++; endwhile; ?>
+
+  </div>
+
+<?php endif; ?>
+
+
 </div><!-- /.container-fluid content -->

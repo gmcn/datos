@@ -11,7 +11,7 @@ $video = get_field('video');
     <div class="row intro">
       <div class="col-md-12">
 
-          <h1><span style="color:<?php echo $page_colour ?>;"><?php echo the_title() ?></span> Industry</h1>
+          <h1><span style="color:<?php echo $page_colour ?>;"><?php echo the_title() ?></span> <?php if ($post->post_parent == 159) : ?>Industry<?php endif; ?></h1>
 
       </div>
     </div>
