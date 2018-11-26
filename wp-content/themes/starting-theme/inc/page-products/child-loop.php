@@ -5,7 +5,13 @@
 <?php else : ?>
 
   <div class="cta__wrapper">
-    <span class="product__cta">Please click on a product below to find out more.</span>
+
+    <?php $postid = get_the_ID(); if ( $postid != 694) : ?>
+
+      <span class="product__cta">Please click on a product below to find out more.</span>
+
+    <?php endif; ?>
+    
   </div>
 
 <?php endif ?>

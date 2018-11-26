@@ -2,14 +2,13 @@
   <div class="row">
 
     <?php
-    $i = 0;
     while ($wp_query->have_posts()) : $wp_query->the_post();
     $video = get_field('video');
     $company_logo = get_field('company_logo');
     $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
     ?>
 
-    <div class="col-md-6 testimonial-entry wow fadeinUp">
+    <div class="col-md-6 testimonial-entry wow fadeInUp">
       <div class="row">
         <div class="col-md-6 title">
           <div class="vert-align">
@@ -28,7 +27,7 @@
           </div>
         </div>
         <div class="col-md-6 no-gutter-left">
-          <div class="wrapper" style="background: url(<?php echo $thumb[0] ?>) #000;">
+          <div class="wrapper" style="background: url(<?php echo $thumb[0] ?>) #000; background-size: cover;">
             <div class="vert-align">
               <img src="<?php echo $company_logo ?>" alt="<?php the_title(); ?>" />
             </div>
@@ -37,7 +36,7 @@
       </div>
     </div>
 
-    <?php $i++; endwhile; ?>
+    <?php endwhile; ?>
 
   </div>
 </div>

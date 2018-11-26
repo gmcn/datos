@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-        <h2><?php the_title(); ?></h2>
+        <a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
         <h4 class="<?php echo $product_type['value']; ?>">Season <?php echo $product_type['label']; ?></h4>
     </div>
 

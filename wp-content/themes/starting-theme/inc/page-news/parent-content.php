@@ -33,6 +33,9 @@ $intro_text = get_field('intro_text');
           'show_count' => false,
           'exclude'    => array( 10 )
       ) ); ?>
+      <div class="clear">
+
+      </div>
     </ul>
 
     <!-- <form action="/" method="get">

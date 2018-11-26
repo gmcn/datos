@@ -50,6 +50,12 @@ iframe {
       color: #fff;
       font-family: 'Montserrat', sans-serif
     }
+    .recaptcha {
+      text-align: right;
+      #field_rkdap div {
+        display: inline-block !important;
+      }
+    }
     .submit {
       text-align: right;
       font-family: 'Montserrat', sans-serif;

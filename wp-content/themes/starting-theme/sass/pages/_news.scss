@@ -59,7 +59,10 @@ p.filter {
   ul {
     margin: 0;
     list-style: none;
-    padding: 25px 0 50px;
+    @include md {
+      padding: 25px 0 50px;
+    }
+    padding: 25px 0 25px;
     border-top: 2px solid #7e7d7d;
     border-bottom: 2px solid #7e7d7d;
     margin-top: 15px;
@@ -137,6 +140,30 @@ p.filter {
   margin-bottom: 15px;
   padding-left: 7.5px !important;
   padding-right: 7.5px !important;
+  .tech-tip-crm {
+    background: url(images/tech-tip-crm.jpg) !important;
+    background-size: cover !important; height: 100% !important;
+  }
+  .tech-tips-factory {
+    background: url(images/tech-tips-factory.jpg) !important;
+    background-size: cover !important; height: 100% !important;
+  }
+  .tech-tips-office {
+    background: url(images/tech-tips-office.jpg) !important;
+    background-size: cover !important; height: 100% !important;
+  }
+  .tech-tips-online {
+    background: url(images/tech-tips-online.jpg) !important;
+    background-size: cover !important; height: 100% !important;
+  }
+  .tech-tips-pos {
+    background: url(images/tech-tips-pos.jpg) !important;
+    background-size: cover !important; height: 100% !important;
+  }
+  .tech-tips-road {
+    background: url(images/tech-tips-road.jpg) !important;
+    background-size: cover !important; height: 100% !important;
+  }
   .date {
     background: #b4c609;
     font-weight: 700;

@@ -23,11 +23,19 @@ $the_query = new WP_Query( $args ); ?>
 
       $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
+      $cat_name = get_category(get_query_var('cat'))->name;
+
+      $categ = get_the_category();
+
       ?>
 
 
-        <div class="col-sm-6 col-md-4 col-lg-3 news-entry wow <?php if ($i % 2) : ?>fadeinLeft <?php else : ?> fadein<?php endif; ?> <?php foreach((get_the_category()) as $category){ echo $category->slug; echo category_description($category); }?>">
-          <div class="wrapper" style="background: url(<?php echo $thumb ?>); background-size: cover; height: 100%;">
+        <div class="col-sm-6 col-md-4 col-lg-3 news-entry wow <?php if ($i % 2) : ?>fadeinLeft <?php else : ?> fadein<?php endif; ?>">
+          <div class="wrapper <?php
+
+          foreach((get_the_category()) as $category){ echo $category->slug . " "; }
+
+          ?>" style="background: url(<?php echo $thumb ?>); background-size: cover; height: 100%;">
             <div class="hover">
               <div class="vert-align">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/read-more.jpg" alt="<?php the_title(); ?>"><br  />

@@ -55,7 +55,9 @@ $intro_text = get_field('intro_text');
             }
             echo '</a></li>';
         }
-        echo '</ul>';
+        echo '<div class="clear">
+
+        </div></ul>';
     } ?>
 
     <?php endif; ?>
